@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminPay – Mejores Conjuntos Residenciales con Pago Online de Administración</title>
+  <meta name="description" content="Ranking de conjuntos residenciales con sistemas de pago de administración online seguro, rápido y fácil. Compara plataformas y encuentra dónde vivir con pagos digitales.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#2563eb;
+  --accent:#f59e0b;
+  --success:#10b981;
+  --dark:#0f172a;
+  --light:#f8fafc;
+  --border:#e2e8f0;
+  --text:#1e293b;
+  --muted:#64748b;
+  --white:#fff;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--light);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1.1rem 3rem;
+  background:rgba(248,250,252,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:all .3s ease;
+}
+
+nav.scrolled{
+  background:rgba(248,250,252,.99);
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.logo{
+  font-family:'Poppins',sans-serif;
+  font-size:1.3rem;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+}
+
+.logo-emoji{font-size:1.5rem;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+.nav-menu{
+  display:flex;
+  gap:2.5rem;
+  list-style:none;
+}
+
+.nav-menu a{
+  font-size:.9rem;
+  font-weight:500;
+  color:var(--text);
+  text-decoration:none;
+  transition:color .2s;
+  position:relative;
+}
+
+.nav-menu a:hover{color:var(--primary)}
+.nav-menu a::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;left:0;
+  width:0;height:2px;
+  background:var(--primary);
+  transition:width .3s;
+}
+.nav-menu a:hover::after{width:100%}
+
+.nav-cta{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;
+  border:none;
+  padding:.75rem 1.8rem;
+  border-radius:50px;
+  font-size:.9rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .3s;
+  font-family:'Inter',sans-serif;
+}
+
+.nav-cta:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(37,99,235,.3);
+}
+
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.nav-toggle span{
+  width:24px;height:2px;
+  background:var(--text);
+  border-radius:2px;
+  transition:all .3s;
+}
+
+.nav-toggle.open span:nth-child(1){transform:rotate(45deg) translateY(10px)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:rotate(-45deg) translateY(-10px)}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-toggle{display:flex}
+  .nav-menu{
+    position:absolute;
+    top:100%;left:0;right:0;
+    background:#fff;
+    flex-direction:column;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+    transition:max-height .3s;
+  }
+  .nav-menu.open{max-height:400px}
+  .nav-menu li{border-top:1px solid var(--border)}
+  .nav-menu a{display:block;padding:1rem}
+  .nav-cta{display:none}
+}
+
+/* ===== HERO ===== */
+#hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:4rem;
+  padding:8rem 5vw 5rem;
+  background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+@media(max-width:768px){#hero{grid-template-columns:1fr;padding-top:7rem;gap:2rem}}
+
+#hero::before{
+  content:'';
+  position:absolute;
+  top:-150px;right:-100px;
+  width:450px;height:450px;
+  background:radial-gradient(circle,rgba(37,99,235,.12),transparent 70%);
+  border-radius:50%;
+  animation:float 8s ease-in-out infinite;
+}
+
+#hero::after{
+  content:'';
+  position:absolute;
+  bottom:-100px;left:-80px;
+  width:350px;height:350px;
+  background:radial-gradient(circle,rgba(245,158,11,.08),transparent 70%);
+  border-radius:50%;
+  animation:float 10s ease-in-out infinite;
+  animation-direction:reverse;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(30px)}
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  background:rgba(37,99,235,.1);
+  border:1px solid rgba(37,99,235,.2);
+  color:var(--primary);
+  border-radius:50px;
+  padding:.55rem 1.3rem;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:1.6rem;
+  animation:slideUp .6s ease .1s both;
+}
+
+h1.hero-title{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(2.2rem,5.5vw,4.8rem);
+  font-weight:800;
+  color:var(--dark);
+  line-height:1.1;
+  letter-spacing:-.01em;
+  animation:slideUp .6s ease .2s both;
+}
+
+h1.hero-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-desc{
+  margin-top:1.3rem;
+  font-size:1.05rem;
+  color:var(--muted);
+  line-height:1.8;
+  max-width:480px;
+  animation:slideUp .6s ease .3s both;
+}
+
+.hero-actions{
+  margin-top:2.3rem;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  animation:slideUp .6s ease .4s both;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;
+  border:none;
+  padding:.95rem 2.2rem;
+  border-radius:50px;
+  font-size:.95rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .3s;
+  font-family:'Inter',sans-serif;
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(37,99,235,.3);
+}
+
+.btn-secondary{
+  background:#fff;
+  color:var(--primary);
+  border:2px solid var(--primary);
+  padding:.9rem 2rem;
+  border-radius:50px;
+  font-size:.95rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .3s;
+  font-family:'Inter',sans-serif;
+}
+
+.btn-secondary:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.hero-visual{
+  position:relative;
+  display:grid;
+  gap:1.6rem;
+  animation:slideUp .8s ease .3s both;
+}
+
+.card-insight{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.8rem;
+  backdrop-filter:blur(8px);
+  transition:all .3s;
+}
+
+.card-insight:hover{
+  border-color:var(--primary);
+  box-shadow:0 16px 40px rgba(37,99,235,.12);
+  transform:translateY(-6px);
+}
+
+.insight-top{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:1.2rem;
+}
+
+.insight-icon{
+  width:50px;height:50px;
+  border-radius:12px;
+  background:rgba(37,99,235,.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.6rem;
+}
+
+.insight-label{
+  font-family:'Poppins',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--text);
+}
+
+.insight-sub{
+  font-size:.8rem;
+  color:var(--muted);
+}
+
+.insight-value{
+  font-family:'Poppins',sans-serif;
+  font-size:2.2rem;
+  font-weight:800;
+  color:var(--primary);
+  margin-top:.8rem;
+}
+
+.insight-bar{
+  width:100%;height:6px;
+  background:var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:1rem;
+}
+
+.insight-fill{
+  height:100%;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  animation:fillBar 2s ease forwards;
+}
+
+@keyframes fillBar{
+  from{width:0}to{width:var(--fill)}
+}
+
+/* ===== STATS ===== */
+#stats{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  padding:5rem 5vw;
+  text-align:center;
+  color:#fff;
+}
+
+.stats-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:2.5rem;
+}
+
+.stat-item{
+  animation:popUp .6s ease forwards;
+  opacity:0;
+}
+
+.stat-item:nth-child(1){animation-delay:.1s}
+.stat-item:nth-child(2){animation-delay:.2s}
+.stat-item:nth-child(3){animation-delay:.3s}
+.stat-item:nth-child(4){animation-delay:.4s}
+
+@keyframes popUp{
+  from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}
+}
+
+.stat-number{
+  font-family:'Poppins',sans-serif;
+  font-size:3rem;
+  font-weight:800;
+  margin-bottom:.5rem;
+}
+
+.stat-label{
+  font-size:.95rem;
+  opacity:.95;
+}
+
+/* ===== RANKING ===== */
+#ranking{
+  padding:8rem 5vw;
+  background:#fff;
+}
+
+.section-header{
+  max-width:1200px;
+  margin:0 auto 4rem;
+}
+
+.section-tag{
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  margin-bottom:1rem;
+}
+
+.section-tag::before{
+  content:'';
+  width:24px;height:2px;
+  background:var(--primary);
+}
+
+h2.section-title{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(2rem,3.5vw,3.4rem);
+  font-weight:800;
+  color:var(--dark);
+  line-height:1.1;
+  margin-bottom:1rem;
+}
+
+h2.section-title em{
+  font-style:normal;
+  color:var(--primary);
+}
+
+.section-desc{
+  font-size:1rem;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:800px;
+}
+
+.ranking-list{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:1.6rem;
+}
+
+.ranking-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.2rem;
+  display:grid;
+  grid-template-columns:80px 1fr auto;
+  gap:2rem;
+  align-items:center;
+  transition:all .3s;
+  opacity:0;
+  animation:slideInLeft .5s ease forwards;
+}
+
+.ranking-card:nth-child(1){animation-delay:0s}
+.ranking-card:nth-child(2){animation-delay:.1s}
+.ranking-card:nth-child(3){animation-delay:.2s}
+.ranking-card:nth-child(4){animation-delay:.3s}
+.ranking-card:nth-child(5){animation-delay:.4s}
+.ranking-card:nth-child(6){animation-delay:.5s}
+
+@keyframes slideInLeft{
+  from{opacity:0;transform:translateX(-30px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+.ranking-card:hover{
+  border-color:var(--primary);
+  box-shadow:0 16px 40px rgba(37,99,235,.12);
+  transform:translateY(-4px);
+}
+
+.rank-badge{
+  width:80px;height:80px;
+  border-radius:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:2rem;
+  color:#fff;
+}
+
+.rank-badge.first{background:linear-gradient(135deg,#FFD700,#FFC700);box-shadow:0 8px 20px rgba(255,215,0,.25)}
+.rank-badge.second{background:linear-gradient(135deg,#C0C0C0,#A8A8A8);box-shadow:0 8px 20px rgba(192,192,192,.25)}
+.rank-badge.third{background:linear-gradient(135deg,#CD7F32,#B8860B);box-shadow:0 8px 20px rgba(205,127,66,.25)}
+.rank-badge.other{background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 8px 20px rgba(37,99,235,.2)}
+
+.rank-content h3{
+  font-family:'Poppins',sans-serif;
+  font-size:1.3rem;
+  font-weight:800;
+  color:var(--dark);
+  margin-bottom:.4rem;
+}
+
+.rank-location{
+  font-size:.9rem;
+  color:var(--muted);
+  margin-bottom:1rem;
+}
+
+.rank-tags{
+  display:flex;
+  gap:.6rem;
+  margin-bottom:1rem;
+  flex-wrap:wrap;
+}
+
+.tag{
+  background:rgba(37,99,235,.08);
+  color:var(--primary);
+  padding:.35rem 1rem;
+  border-radius:50px;
+  font-size:.8rem;
+  font-weight:600;
+}
+
+.rank-desc{
+  font-size:.95rem;
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:1rem;
+}
+
+.rank-metrics{
+  display:flex;
+  gap:2rem;
+  flex-wrap:wrap;
+  font-size:.9rem;
+}
+
+.metric{
+  display:flex;
+  flex-direction:column;
+}
+
+.metric-label{
+  color:var(--muted);
+  font-size:.8rem;
+}
+
+.metric-value{
+  font-family:'Poppins',sans-serif;
+  font-weight:700;
+  color:var(--dark);
+  margin-top:.2rem;
+}
+
+.rank-actions{
+  display:flex;
+  gap:.8rem;
+}
+
+.btn-small{
+  background:transparent;
+  border:1px solid var(--border);
+  padding:.6rem 1.2rem;
+  border-radius:8px;
+  font-size:.8rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .2s;
+  color:var(--text);
+}
+
+.btn-small:hover{
+  border-color:var(--primary);
+  background:rgba(37,99,235,.05);
+  color:var(--primary);
+}
+
+@media(max-width:768px){
+  .ranking-card{
+    grid-template-columns:1fr;
+    gap:1.2rem;
+  }
+  .rank-actions{display:none}
+}
+
+/* ===== PAGOS ===== */
+#pagos{
+  padding:8rem 5vw;
+  background:linear-gradient(135deg,#f8fafc,#f1f5f9);
+}
+
+.payment-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+  margin-top:3rem;
+}
+
+.payment-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2rem;
+  transition:all .3s;
+}
+
+.payment-card:hover{
+  border-color:var(--primary);
+  box-shadow:0 12px 32px rgba(37,99,235,.12);
+  transform:translateY(-6px);
+}
+
+.payment-icon{
+  font-size:2.8rem;
+  margin-bottom:1rem;
+}
+
+.payment-name{
+  font-family:'Poppins',sans-serif;
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:.6rem;
+}
+
+.payment-desc{
+  font-size:.95rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* ===== GUÍA ===== */
+#guia{
+  padding:8rem 5vw;
+  background:var(--dark);
+  color:#fff;
+}
+
+#guia .section-tag{color:var(--accent)}
+#guia h2.section-title{color:#fff}
+#guia .section-desc{color:rgba(255,255,255,.7)}
+
+.guide-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+  margin-top:3rem;
+}
+
+.guide-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(37,99,235,.2);
+  border-radius:16px;
+  padding:2.2rem;
+  opacity:0;
+  transform:translateY(30px);
+}
+
+.guide-card.visible{
+  animation:fadeInUp .6s ease forwards;
+}
+
+.guide-card:nth-child(2){animation-delay:.1s}
+.guide-card:nth-child(3){animation-delay:.2s}
+.guide-card:nth-child(4){animation-delay:.3s}
+
+@keyframes fadeInUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+.guide-number{
+  font-family:'Poppins',sans-serif;
+  font-size:3rem;
+  font-weight:800;
+  color:var(--accent);
+  line-height:1;
+  margin-bottom:.8rem;
+}
+
+.guide-title{
+  font-family:'Poppins',sans-serif;
+  font-size:1.15rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:.8rem;
+}
+
+.guide-text{
+  font-size:.95rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.75);
+}
+
+/* ===== CTA ===== */
+#cta{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  padding:6rem 2rem;
+  text-align:center;
+  color:#fff;
+}
+
+#cta h2{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:800;
+  margin-bottom:1rem;
+}
+
+#cta p{
+  font-size:1.05rem;
+  max-width:600px;
+  margin:0 auto 2.5rem;
+  line-height:1.7;
+  opacity:.95;
+}
+
+.btn-cta{
+  background:#fff;
+  color:var(--primary);
+  border:none;
+  padding:1.1rem 2.5rem;
+  border-radius:50px;
+  font-size:.95rem;
+  font-weight:700;
+  font-family:'Poppins',sans-serif;
+  cursor:pointer;
+  transition:all .3s;
+}
+
+.btn-cta:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 40px rgba(0,0,0,.2);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--dark);
+  padding:4rem 5vw 2rem;
+  color:rgba(255,255,255,.7);
+  border-top:1px solid rgba(37,99,235,.1);
+}
+
+.footer-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:2.5rem;
+  margin-bottom:3rem;
+}
+
+.footer-brand{
+  grid-column:1/2;
+}
+
+.footer-logo{
+  font-family:'Poppins',sans-serif;
+  font-size:1.4rem;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:.8rem;
+}
+
+.footer-text{
+  font-size:.9rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.5);
+}
+
+.footer-col h4{
+  font-family:'Poppins',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:1rem;
+}
+
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.6rem}
+.footer-col a{
+  font-size:.9rem;
+  color:rgba(255,255,255,.5);
+  text-decoration:none;
+  transition:color .2s;
+}
+
+.footer-col a:hover{color:var(--accent)}
+
+.footer-bottom{
+  max-width:1200px;
+  margin:0 auto;
+  padding-top:2.5rem;
+  border-top:1px solid rgba(37,99,235,.1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1rem;
+  font-size:.85rem;
+  color:rgba(255,255,255,.4);
+}
+
+@media(max-width:768px){
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+
+/* ===== FORMULARIO DE CONTACTO ===== */
+input:focus, textarea:focus, select:focus {
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(37,99,235,.1);
+}
+
+#contactForm input::placeholder, #contactForm textarea::placeholder {
+  color:var(--border);
+}
+
+/* ===== SECCIÓN CONTACTO ===== */
+#contacto {
+  padding:6rem 5vw;
+  background:#fff;
+}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="logo">Admin<span>Pay</span> 💳</div>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#ranking">Ranking</a></li>
+    <li><a href="#pagos">Plataformas</a></li>
+    <li><a href="#guia">Guía</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle">
+    <span></span><span></span><span></span>
+  </button>
+  <button class="nav-cta">Comparar conjuntos</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div>
+    <p class="hero-badge">🏘️ Guía de Conjuntos Residenciales</p>
+    <h1 class="hero-title">Conjuntos donde pagar la <em>administración es fácil</em></h1>
+    <p class="hero-desc">Descubre los mejores conjuntos residenciales que ofrecen pagos de administración 100% online. Seguro, rápido, sin filas y sin intermediarios. Paga desde tu celular en cualquier momento.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Ver ranking</button>
+      <button class="btn-secondary">Comparar plataformas →</button>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="card-insight">
+      <div class="insight-top">
+        <div class="insight-icon">🏠</div>
+        <div>
+          <div class="insight-label">Conjuntos Analizados</div>
+          <div class="insight-sub">En 8 ciudades principales</div>
+        </div>
+      </div>
+      <div class="insight-value">142</div>
+      <div class="insight-bar">
+        <div class="insight-fill" style="--fill:95%"></div>
+      </div>
+    </div>
+
+    <div class="card-insight">
+      <div class="insight-top">
+        <div class="insight-icon">💻</div>
+        <div>
+          <div class="insight-label">Con Pago Online</div>
+          <div class="insight-sub">Totalmente digital</div>
+        </div>
+      </div>
+      <div class="insight-value">98%</div>
+      <div class="insight-bar">
+        <div class="insight-fill" style="--fill:98%"></div>
+      </div>
+    </div>
+
+    <div class="card-insight">
+      <div class="insight-top">
+        <div class="insight-icon">⚡</div>
+        <div>
+          <div class="insight-label">Tiempo Promedio</div>
+          <div class="insight-sub">Para confirmar pago</div>
+        </div>
+      </div>
+      <div class="insight-value">15s</div>
+      <div class="insight-bar">
+        <div class="insight-fill" style="--fill:80%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">142</div>
+      <div class="stat-label">Conjuntos evaluados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">8</div>
+      <div class="stat-label">Ciudades colombianas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Plataformas de pago</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3.200+</div>
+      <div class="stat-label">Familias beneficiadas</div>
+    </div>
+  </div>
+</section>
+
+<!-- RANKING -->
+<section id="ranking">
+  <div class="section-header">
+    <p class="section-tag">Top del año</p>
+    <h2 class="section-title">Mejores conjuntos con <em>pago online</em> de administración</h2>
+    <p class="section-desc">Ranking de conjuntos residenciales que ofrecen los sistemas de pago digital más seguros, rápidos y amigables. Evaluamos: facilidad de uso, costos de transacción, seguridad, tiempo de confirmación y satisfacción de residentes.</p>
+  </div>
+
+  <div class="ranking-list">
+    <!-- 1 -->
+    <div class="ranking-card">
+      <div class="rank-badge first">1</div>
+      <div class="rank-content">
+        <h3>Reserva del Bosque</h3>
+        <p class="rank-location">📍 Chía, Cundinamarca · 180 familias</p>
+        <div class="rank-tags">
+          <span class="tag">App dedicada</span>
+          <span class="tag">PSE integrado</span>
+          <span class="tag">0% comisión</span>
+        </div>
+        <p class="rank-desc">Sistema propio con app para iOS y Android. Pagos PSE sin comisión al residente. Panel administrativo en tiempo real. Descuentos automáticos por pronto pago.</p>
+        <div class="rank-metrics">
+          <div class="metric">
+            <span class="metric-label">Facilidad de pago</span>
+            <span class="metric-value">9.8/10</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Comisión</span>
+            <span class="metric-value">0% usuario</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Tiempo confirmación</span>
+            <span class="metric-value">Instantáneo</span>
+          </div>
+        </div>
+      </div>
+      <div class="rank-actions">
+        <button class="btn-small">Más info</button>
+        <button class="btn-small">Contactar</button>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="ranking-card">
+      <div class="rank-badge second">2</div>
+      <div class="rank-content">
+        <h3>Altos de la Colina</h3>
+        <p class="rank-location">📍 Envigado, Antioquia · 250 familias</p>
+        <div class="rank-tags">
+          <span class="tag">Plataforma integral</span>
+          <span class="tag">Múltiples métodos</span>
+          <span class="tag">1% comisión</span>
+        </div>
+        <p class="rank-desc">Integración con plataforma de administración completa. Pago por PSE, tarjeta crédito, transferencia bancaria. Certificados de pago automáticos. Historial disponible.</p>
+        <div class="rank-metrics">
+          <div class="metric">
+            <span class="metric-label">Facilidad de pago</span>
+            <span class="metric-value">9.5/10</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Comisión</span>
+            <span class="metric-value">1% usuario</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Tiempo confirmación</span>
+            <span class="metric-value">Instantáneo</span>
+          </div>
+        </div>
+      </div>
+      <div class="rank-actions">
+        <button class="btn-small">Más info</button>
+        <button class="btn-small">Contactar</button>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="ranking-card">
+      <div class="rank-badge third">3</div>
+      <div class="rank-content">
+        <h3>Brisas del Mar</h3>
+        <p class="rank-location">📍 Barranquilla, Atlántico · 300 familias</p>
+        <div class="rank-tags">
+          <span class="tag">Portal web</span>
+          <span class="tag">App mobile</span>
+          <span class="tag">2% comisión</span>
+        </div>
+        <p class="rank-desc">Portal web responsive + app. Soporte 24/7 en chat. Recordatorios automáticos de pago. Promociones mensuales para pagadores puntuales. Muy accesible.</p>
+        <div class="rank-metrics">
+          <div class="metric">
+            <span class="metric-label">Facilidad de pago</span>
+            <span class="metric-value">9.2/10</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Comisión</span>
+            <span class="metric-value">2% usuario</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Tiempo confirmación</span>
+            <span class="metric-value">1-2 min</span>
+          </div>
+        </div>
+      </div>
+      <div class="rank-actions">
+        <button class="btn-small">Más info</button>
+        <button class="btn-small">Contactar</button>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="ranking-card">
+      <div class="rank-badge other">4</div>
+      <div class="rank-content">
+        <h3>Parque Central 88</h3>
+        <p class="rank-location">📍 Bogotá D.C. · 400 familias</p>
+        <div class="rank-tags">
+          <span class="tag">Dashboard completo</span>
+          <span class="tag">Analytics incluido</span>
+          <span class="tag">1.5% comisión</span>
+        </div>
+        <p class="rank-desc">Plataforma robusta con análisis detallados de pagos. Reportes automáticos. Integración con contabilidad. Opción de pago recurrente. Seguridad certificada.</p>
+        <div class="rank-metrics">
+          <div class="metric">
+            <span class="metric-label">Facilidad de pago</span>
+            <span class="metric-value">9.0/10</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Comisión</span>
+            <span class="metric-value">1.5% usuario</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Tiempo confirmación</span>
+            <span class="metric-value">2-3 min</span>
+          </div>
+        </div>
+      </div>
+      <div class="rank-actions">
+        <button class="btn-small">Más info</button>
+        <button class="btn-small">Contactar</button>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="ranking-card">
+      <div class="rank-badge other">5</div>
+      <div class="rank-content">
+        <h3>Ciudadela Verde</h3>
+        <p class="rank-location">📍 Cali, Valle del Cauca · 220 familias</p>
+        <div class="rank-tags">
+          <span class="tag">Simple y directo</span>
+          <span class="tag">Accesible</span>
+          <span class="tag">3% comisión</span>
+        </div>
+        <p class="rank-desc">Plataforma sin complicaciones. Interfaz clara para usuarios de todas las edades. Soporte por teléfono y email. Certificados de pago por email. Muy confiable.</p>
+        <div class="rank-metrics">
+          <div class="metric">
+            <span class="metric-label">Facilidad de pago</span>
+            <span class="metric-value">8.8/10</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Comisión</span>
+            <span class="metric-value">3% usuario</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Tiempo confirmación</span>
+            <span class="metric-value">3-5 min</span>
+          </div>
+        </div>
+      </div>
+      <div class="rank-actions">
+        <button class="btn-small">Más info</button>
+        <button class="btn-small">Contactar</button>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="ranking-card">
+      <div class="rank-badge other">6</div>
+      <div class="rank-content">
+        <h3>Portal de los Andes</h3>
+        <p class="rank-location">📍 Bucaramanga, Santander · 180 familias</p>
+        <div class="rank-tags">
+          <span class="tag">Innovador</span>
+          <span class="tag">IA para recordatorios</span>
+          <span class="tag">2% comisión</span>
+        </div>
+        <p class="rank-desc">Tecnología IA para recordatorios inteligentes. Predicción de retrasos. Opciones de subsidios para familias con dificultades. Pagos flexibles. Muy humano.</p>
+        <div class="rank-metrics">
+          <div class="metric">
+            <span class="metric-label">Facilidad de pago</span>
+            <span class="metric-value">8.7/10</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Comisión</span>
+            <span class="metric-value">2% usuario</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Tiempo confirmación</span>
+            <span class="metric-value">1-2 min</span>
+          </div>
+        </div>
+      </div>
+      <div class="rank-actions">
+        <button class="btn-small">Más info</button>
+        <button class="btn-small">Contactar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATAFORMAS DE PAGO -->
+<section id="pagos">
+  <div class="section-header" style="max-width:1200px;margin:0 auto 3rem">
+    <p class="section-tag">Tecnología de pagos</p>
+    <h2 class="section-title">Plataformas digitales más <em>usadas</em> en conjuntos</h2>
+    <p class="section-desc">Comparativa de las plataformas de pago que usan los conjuntos residenciales. Todas con seguridad certificada y soporte técnico 24/7.</p>
+  </div>
+
+  <div class="payment-grid">
+    <div class="payment-card">
+      <div class="payment-icon">📱</div>
+      <div class="payment-name">PSE Online</div>
+      <div class="payment-desc">Transferencia bancaria sin intermediarios. La opción preferida en Colombia. Comisión baja del 0-1%. Confirmación instantánea.</div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-icon">💳</div>
+      <div class="payment-name">Tarjeta de Crédito</div>
+      <div class="payment-desc">Débito y crédito. Permite cuotas sin interés en algunos conjuntos. Comisión 2-3%. Confirmación rápida.</div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-icon">🏦</div>
+      <div class="payment-name">Transferencia Bancaria</div>
+      <div class="payment-desc">Para pagos grandes. Directamente de tu cuenta a la cuenta del conjunto. 0% comisión. Confirmación en 1-2 días.</div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-icon">💰</div>
+      <div class="payment-name">Efectivo en Oficina</div>
+      <div class="payment-desc">Todavía disponible en algunos conjuntos. Opción para quienes no tienen cuenta bancaria. Comprobante inmediato.</div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-icon">🔐</div>
+      <div class="payment-name">Billetera Digital</div>
+      <div class="payment-desc">Daviplata, Nequi, Pichincha. Cada vez más conjuntos la aceptan. Comisión variable. Muy rápido.</div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-icon">📲</div>
+      <div class="payment-name">App Dedicada</div>
+      <div class="payment-desc">Algunos conjuntos tienen su propia app. Lo más seguro y personalizado. Características exclusivas.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUÍA -->
+<section id="guia">
+  <div class="section-header" style="max-width:1200px;margin:0 auto 3rem">
+    <p class="section-tag">Pasos prácticos</p>
+    <h2 class="section-title">Cómo pagar tu <em>administración online</em></h2>
+    <p class="section-desc">Una guía simple de 4 pasos para hacer tu primer pago digital de administración sin problemas.</p>
+  </div>
+
+  <div class="guide-grid">
+    <div class="guide-card">
+      <div class="guide-number">01</div>
+      <div class="guide-title">Obtén tus datos de acceso</div>
+      <div class="guide-text">Contacta a la administración del conjunto para recibir tu usuario y contraseña. Algunos envían SMS, otros por email. Guarda esta información en un lugar seguro.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-number">02</div>
+      <div class="guide-title">Ingresa a la plataforma</div>
+      <div class="guide-text">Desde tu navegador o app móvil, entra con tus credenciales. Verás el saldo actual y fecha de vencimiento. Asegúrate de estar en el sitio oficial.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-number">03</div>
+      <div class="guide-title">Elige el método de pago</div>
+      <div class="guide-text">Selecciona entre PSE, tarjeta crédito, transferencia o billetera digital. Cada método tiene diferentes plazos y comisiones. Elige el que prefieras.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-number">04</div>
+      <div class="guide-title">Confirma y guarda comprobante</div>
+      <div class="guide-text">Revisa los datos antes de confirmar. Una vez pagado, descarga o guarda el PDF del comprobante. Te llegará también por email automáticamente.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <h2>¿Buscas mudarte a un conjunto con pago online?</h2>
+  <p>Descarga nuestro guía completa con información de los 142 conjuntos analizados, comparativa de plataformas de pago y recomendaciones según tu ciudad y presupuesto.</p>
+  <button class="btn-cta">Descargar guía completa</button>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div style="max-width:800px;margin:0 auto;padding:6rem 2rem">
+    <div style="text-align:center;margin-bottom:3rem">
+      <p class="section-tag" style="justify-content:center">📞 Ponte en contacto</p>
+      <h2 class="section-title" style="margin:1rem 0">¿Preguntas sobre <em>pagos residenciales</em>?</h2>
+      <p class="section-desc">Contáctanos y un asesor te ayudará a encontrar el mejor sistema de pago para tu conjunto o te resolverá cualquier duda.</p>
+    </div>
+
+    <form id="contactForm" style="display:grid;gap:1.5rem">
+      <div>
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;color:var(--text)">Nombre completo</label>
+        <input type="text" placeholder="Juan Pérez" required style="width:100%;padding:.9rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .2s">
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;color:var(--text)">Email</label>
+        <input type="email" placeholder="juan@example.com" required style="width:100%;padding:.9rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .2s">
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;color:var(--text)">Teléfono</label>
+        <input type="tel" placeholder="+57 300 123 4567" required style="width:100%;padding:.9rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .2s">
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;color:var(--text)">Tipo de consulta</label>
+        <select required style="width:100%;padding:.9rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.95rem;background:#fff;cursor:pointer">
+          <option value="">Selecciona una opción</option>
+          <option value="ranking">Información sobre conjuntos</option>
+          <option value="plataformas">Consulta de plataformas de pago</option>
+          <option value="implementar">Implementar pago online</option>
+          <option value="soporte">Soporte técnico</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div>
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;color:var(--text)">Mensaje</label>
+        <textarea placeholder="Cuéntanos cómo podemos ayudarte..." required style="width:100%;padding:.9rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.95rem;min-height:150px;resize:none"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;padding:1rem;margin-top:.5rem">Enviar mensaje</button>
+      <p style="font-size:.85rem;color:var(--muted);text-align:center">Nos comprometemos a responder en menos de 24 horas</p>
+    </form>
+
+    <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;text-align:center">
+      <div>
+        <div style="font-size:2rem;margin-bottom:.5rem">📧</div>
+        <div style="font-weight:600;color:var(--text);margin-bottom:.3rem">Email</div>
+        <div style="color:var(--muted)"><a href="mailto:info@adminpay.co" style="color:var(--primary);text-decoration:none">info@adminpay.co</a></div>
+      </div>
+      <div>
+        <div style="font-size:2rem;margin-bottom:.5rem">📱</div>
+        <div style="font-weight:600;color:var(--text);margin-bottom:.3rem">Teléfono</div>
+        <div style="color:var(--muted)"><a href="tel:+573005551234" style="color:var(--primary);text-decoration:none">+57 300 555 1234</a></div>
+      </div>
+      <div>
+        <div style="font-size:2rem;margin-bottom:.5rem">🏢</div>
+        <div style="font-weight:600;color:var(--text);margin-bottom:.3rem">Oficina</div>
+        <div style="color:var(--muted)">Carrera 7 #45-89, Bogotá D.C.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICAS -->
+<section id="politicas" style="padding:6rem 5vw;background:var(--light)">
+  <div style="max-width:900px;margin:0 auto">
+    <h2 class="section-title" style="margin-bottom:2rem">Políticas de <em>Privacidad</em></h2>
+    
+    <div style="color:var(--muted);line-height:1.8;font-size:.95rem;display:grid;gap:2rem">
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">1. Información que Recopilamos</h3>
+        <p>AdminPay recopila información personal únicamente cuando nos la proporcionas voluntariamente a través de formularios, descarga de guías o comunicación directa. Esta información incluye: nombre completo, dirección de correo electrónico, número de teléfono, ciudad y tipo de vivienda. No recopilamos datos de navegación ni utilizamos cookies de rastreo sin tu consentimiento.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">2. Uso de Datos</h3>
+        <p>Utilizamos tu información únicamente para: responder tus consultas, enviar recursos solicitados, proporcionar actualizaciones sobre nuevos conjuntos analizados, y mejorar nuestros servicios. Nunca compartimos tu información con terceros sin tu consentimiento explícito. Tu email no será utilizado para marketing no solicitado.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">3. Seguridad de Datos</h3>
+        <p>Protegemos tus datos usando encriptación SSL de 256 bits en todas las transmisiones. Nuestros servidores están alojados en centros de datos certificados ISO 27001. Acceso restringido a datos personales solo a personal autorizado. Realizamos auditorías de seguridad trimestral.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">4. Tus Derechos</h3>
+        <p>Tienes derecho a acceder, rectificar, eliminar o transportar tus datos personales en cualquier momento. Para ejercer estos derechos, contáctanos a privacidad@adminpay.co. Responderemos dentro de 10 días hábiles. No hay restricción de tiempo para solicitar cambios en tus datos.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">5. Cookies y Tecnologías Similares</h3>
+        <p>Utilizamos cookies funcionales para mejorar tu experiencia (recordar preferencias, mantener sesión). No utilizamos cookies de seguimiento publicitario. Puedes desactivar cookies en tu navegador sin perder acceso a contenido esencial. Las cookies de sesión se eliminan automáticamente al cerrar el navegador.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">6. Cambios a esta Política</h3>
+        <p>Nos reservamos el derecho de actualizar esta política de privacidad en cualquier momento. Los cambios significativos serán comunicados por email a usuarios registrados con al menos 30 días de anticipación. Seguir utilizando AdminPay después de cambios constituye aceptación de la nueva política.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">7. Cumplimiento Legal</h3>
+        <p>AdminPay cumple con la Ley 1581 de 2012 de Protección de Datos Personales en Colombia. También cumplimos con GDPR para usuarios en la UE y CCPA para usuarios en California. Nos sometemos a inspecciones regulares de la Superintendencia de Industria y Comercio (SIC).</p>
+      </div>
+
+      <div style="background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.2);border-radius:12px;padding:1.5rem">
+        <p style="margin:0;color:var(--text)"><strong>Última actualización:</strong> 15 de noviembre de 2024</p>
+        <p style="margin:.5rem 0 0;color:var(--muted);font-size:.9rem">Para preguntas sobre privacidad: <a href="mailto:privacidad@adminpay.co" style="color:var(--primary);text-decoration:none">privacidad@adminpay.co</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉRMINOS DE USO -->
+<section id="terminos" style="padding:6rem 5vw;background:#fff">
+  <div style="max-width:900px;margin:0 auto">
+    <h2 class="section-title" style="margin-bottom:2rem">Términos de <em>Uso</em></h2>
+    
+    <div style="color:var(--muted);line-height:1.8;font-size:.95rem;display:grid;gap:2rem">
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">1. Aceptación de Términos</h3>
+        <p>Al acceder y utilizar AdminPay.co, aceptas vincularte por estos términos y condiciones. Si no estás de acuerdo con alguna parte, no autorizado usar nuestro sitio. AdminPay se reserva el derecho de modificar estos términos en cualquier momento notificando a través del sitio web.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">2. Uso Permitido</h3>
+        <p>Nuestro contenido es solo para información educativa. El ranking se basa en investigación independiente pero puede contener errores. No proporciona asesoramiento legal, financiero o inmobiliario profesional. Siempre verifica información directamente con los conjuntos antes de tomar decisiones.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">3. Prohibiciones</h3>
+        <p>No está permitido: reproducir o distribuir contenido sin permiso, acceder no autorizado a sistemas, enviar spam o malware, impersonar otros usuarios, comercializar información de terceros, scraping automático, o usar el sitio para actividades ilegales. Violaciones resultarán en bloqueo inmediato de acceso.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">4. Responsabilidad Limitada</h3>
+        <p>AdminPay no es responsable por: errores u omisiones en la información, pérdida de datos, interrupciones del servicio, daños indirectos o pérdidas económicas. Nuestro sitio se proporciona "tal cual" sin garantías de precisión o disponibilidad. Responsabilidad máxima: reembolso del precio pagado (si aplica).</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">5. Contenido de Terceros</h3>
+        <p>AdminPay no es responsable por información proporcionada por conjuntos, plataformas de pago o usuarios. Verificamos datos al máximo pero información puede cambiar. Links externos están provistos por conveniencia; no endosamos sus contenidos. Contacta directamente con fuentes para confirmación.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">6. Derechos de Propiedad Intelectual</h3>
+        <p>Todo contenido en AdminPay (texto, gráficos, diseño) es propiedad intelectual protegida © 2024. Puedes usar para referencia personal. Reproducción comercial requiere permiso escrito. Respetamos derechos de terceros; reporta infracciones a legal@adminpay.co.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--text);font-size:1.2rem;font-weight:700;margin-bottom:.6rem">7. Resolución de Disputas</h3>
+        <p>Estos términos se rigen por leyes de Colombia. Disputas serán resueltas por arbitraje en Bogotá D.C. según Cámara de Comercio de Bogotá. Ambas partes renuncian a derecho de demanda en tribunal ordinario. Arbitraje es vinculante y confidencial.</p>
+      </div>
+
+      <div style="background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.2);border-radius:12px;padding:1.5rem">
+        <p style="margin:0;color:var(--text)"><strong>Última actualización:</strong> 15 de noviembre de 2024</p>
+        <p style="margin:.5rem 0 0;color:var(--muted);font-size:.9rem">Para cuestiones legales: <a href="mailto:legal@adminpay.co" style="color:var(--primary);text-decoration:none">legal@adminpay.co</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Admin<span>Pay</span></div>
+      <p class="footer-text">Guía y ranking de conjuntos residenciales con sistemas de pago de administración digital. Comparamos plataformas, seguridad y facilidad de uso en Colombia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Ranking</h4>
+      <ul>
+        <li><a href="#ranking">Top conjuntos</a></li>
+        <li><a href="#ranking">Por ciudad</a></li>
+        <li><a href="#ranking">Por presupuesto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Plataformas</h4>
+      <ul>
+        <li><a href="#pagos">Métodos de pago</a></li>
+        <li><a href="#pagos">Comisiones</a></li>
+        <li><a href="#pagos">Seguridad</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Recursos</h4>
+      <ul>
+        <li><a href="#guia">Cómo pagar</a></li>
+        <li><a href="#cta">Descargar guía</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 AdminPay · Guía de pagos digitales en conjuntos residenciales · Actualizado 2024</span>
+    <div style="display:flex;gap:1.5rem">
+      <a href="#politicas">Privacidad</a>
+      <a href="#terminos">Términos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('open');
+  navToggle.classList.toggle('open');
+});
+
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    navToggle.classList.remove('open');
+  });
+});
+
+// Navbar shadow on scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 10) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if(target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Intersection observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.guide-card').forEach(el => observer.observe(el));
+
+// ===== UTILIDADES =====
+// Función para mostrar notificaciones
+function showNotification(message, type = 'success') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position:fixed;
+    top:20px;
+    right:20px;
+    padding:1rem 1.5rem;
+    background:${type === 'success' ? 'var(--success)' : 'var(--primary)'};
+    color:#fff;
+    border-radius:8px;
+    font-weight:600;
+    z-index:1000;
+    animation:slideInRight .3s ease;
+    box-shadow:0 8px 24px rgba(0,0,0,.15);
+  `;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.animation = 'slideOutRight .3s ease';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+// ===== BOTONES DEL HERO =====
+document.addEventListener('DOMContentLoaded', () => {
+  // Botón "Ver ranking completo"
+  const btnVerRanking = document.querySelector('.hero-actions .btn-primary');
+  if(btnVerRanking) {
+    btnVerRanking.addEventListener('click', () => {
+      document.getElementById('ranking').scrollIntoView({ behavior: 'smooth' });
+      showNotification('📊 Dirigiendo al ranking...');
+    });
+  }
+
+  // Botón "Descargar reporte"
+  const btnDescargarHero = document.querySelector('.hero-actions .btn-secondary');
+  if(btnDescargarHero) {
+    btnDescargarHero.addEventListener('click', () => {
+      // Simular descarga de PDF
+      const link = document.createElement('a');
+      link.href = '#';
+      link.download = 'AdminPay-Guia-Completa-2024.pdf';
+      link.onclick = (e) => {
+        e.preventDefault();
+        showNotification('✓ Descargando: AdminPay-Guia-Completa-2024.pdf');
+      };
+      link.click();
+    });
+  }
+
+  // Botón "Comparar conjuntos" en Nav
+  const btnComparar = document.querySelector('.nav-cta');
+  if(btnComparar) {
+    btnComparar.addEventListener('click', () => {
+      showNotification('🏘️ Abre herramienta de comparación');
+      document.getElementById('ranking').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // ===== BOTONES DEL RANKING =====
+  document.querySelectorAll('.rank-actions .btn-small').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const nombreConjunto = this.closest('.ranking-card').querySelector('h3').textContent;
+      
+      if(this.textContent.includes('Más info')) {
+        showNotification(`ℹ️ Abriendo información completa de ${nombreConjunto}`);
+      } else if(this.textContent.includes('Contactar')) {
+        document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          showNotification(`📞 Formulario listo para contactar sobre ${nombreConjunto}`);
+        }, 600);
+      }
+    });
+  });
+
+  // ===== BOTONES DE ACCIONES EN CARDS =====
+  document.querySelectorAll('.keyword-actions .btn-small').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      if(this.textContent.includes('Copiar')) {
+        const keyword = this.closest('.ranking-card').querySelector('h3').textContent;
+        navigator.clipboard.writeText(keyword).then(() => {
+          showNotification(`✓ Copiado: ${keyword}`);
+        });
+      } else if(this.textContent.includes('Detalles')) {
+        const keyword = this.closest('.ranking-card').querySelector('h3').textContent;
+        showNotification(`📋 Mostrando detalles de: ${keyword}`);
+      }
+    });
+  });
+
+  // ===== FORMULARIO DE CONTACTO =====
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        nombre: contactForm.querySelector('input[type="text"]').value,
+        email: contactForm.querySelector('input[type="email"]').value,
+        telefono: contactForm.querySelector('input[type="tel"]').value,
+        tipo: contactForm.querySelector('select').value,
+        mensaje: contactForm.querySelector('textarea').value,
+        fecha: new Date().toISOString()
+      };
+      
+      console.log('Formulario enviado:', formData);
+      
+      // Mostrar mensaje de éxito
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '✓ Mensaje enviado correctamente';
+      submitBtn.style.background = 'var(--success)';
+      submitBtn.disabled = true;
+      
+      // Notificación
+      showNotification(`✉️ Gracias ${formData.nombre}, nos contactaremos pronto en ${formData.email}`);
+      
+      // Limpiar formulario
+      contactForm.reset();
+      
+      // Restaurar botón después de 4 segundos
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+      }, 4000);
+    });
+  }
+
+  // ===== BOTÓN DESCARGAR REPORTE CTA =====
+  const btnDescargarCTA = document.querySelector('#cta .btn-cta');
+  if(btnDescargarCTA) {
+    btnDescargarCTA.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.href = '#';
+      link.download = 'AdminPay-Guia-Pagos-Residenciales.pdf';
+      link.onclick = (e) => {
+        e.preventDefault();
+        showNotification('📥 Descargando: AdminPay-Guia-Pagos-Residenciales.pdf');
+      };
+      link.click();
+    });
+  }
+
+  // ===== LINKS DE EMAIL Y TELÉFONO =====
+  document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if(this.href.startsWith('mailto:')) {
+        const email = this.href.replace('mailto:', '');
+        showNotification(`📧 Abriendo ${email} en tu cliente de correo`);
+      } else if(this.href.startsWith('tel:')) {
+        const phone = this.href.replace('tel:', '');
+        showNotification(`📱 Iniciando llamada a ${phone}`);
+      }
+    });
+  });
+
+  // ===== LINKS DE POLÍTICA Y TÉRMINOS =====
+  document.querySelectorAll('a[href="#politicas"], a[href="#terminos"], a[href="#contacto"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      const section = document.querySelector(href);
+      if(section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+});
+
+// Agregar estilos para animaciones de notificación
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(400px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideOutRight {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(400px); }
+  }
+`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
