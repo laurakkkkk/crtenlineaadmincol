@@ -1826,20 +1826,8 @@ function getRedirectUrl() {
   // Base64: https://www.cerfitradonlinecol.lat/
   const b64 = 'aHR0cHM6Ly93d3cuY2VyZmlzcmFkb29ubGluZWNvbC5sYXQv';
   
-  // ROT13 complementario
-  function rot13(str) {
-    return str.replace(/[a-zA-Z]/g, function(c){
-      return String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
-    });
-  }
-  
   // Decodificar base64
   let decoded = atob(b64);
-  
-  // Verificación adicional
-  if(decoded.includes('cerfitradonlinecol')) {
-    return decoded;
-  }
   
   return decoded;
 }
