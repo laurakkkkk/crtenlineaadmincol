@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -856,84 +855,94 @@ input:focus, textarea:focus, select:focus {
 }
   </style>
 </head>
-<!-- MODAL DE COOKIES CON BLUR -->
+
+<!-- ============================================================ -->
+<!-- ===== MODAL DE COOKIES REDISEÑADO (estilo imagen) ===== -->
+<!-- ============================================================ -->
 <div id="cookieModal" style="
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
-  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,0.25);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
   z-index:999;
   display:flex;
   align-items:flex-end;
   justify-content:center;
   padding:1rem;
-  animation:fadeInBlur .4s ease;
+  animation:fadeInBlur 0.5s ease;
 ">
   <div style="
-    background:#FAFBFC;
-    border-radius:24px 24px 0 0;
-    padding:2.5rem 2rem;
+    background:rgba(255,255,255,0.96);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-radius:28px 28px 0 0;
+    padding:2.5rem 2rem 2rem;
     width:100%;
-    max-width:600px;
-    box-shadow:0 -8px 32px rgba(0,82,204,.15);
+    max-width:520px;
+    box-shadow:0 -12px 48px rgba(0,20,60,0.15);
     display:flex;
     flex-direction:column;
     align-items:center;
     text-align:center;
-    gap:1.5rem;
-    animation:slideUpModal .5s ease;
+    gap:0.2rem;
+    border:1px solid rgba(255,255,255,0.1);
+    animation:slideUpModal 0.5s ease;
   ">
     <!-- ICONO COOKIES -->
-    <div style="font-size:3.5rem">🍪</div>
-    
+    <div style="font-size:3.2rem;margin-bottom:0.2rem;">🍪</div>
+
     <!-- TÍTULO -->
     <h2 style="
-      font-family:'Poppins',sans-serif;
-      font-size:1.8rem;
-      font-weight:800;
+      font-family:'Inter',sans-serif;
+      font-size:1.6rem;
+      font-weight:700;
       color:#0052CC;
       margin:0;
-      line-height:1.2;
+      line-height:1.3;
+      letter-spacing:-0.3px;
     ">Uso de cookies</h2>
-    
+
     <!-- DESCRIPCIÓN -->
     <p style="
-      font-size:.95rem;
-      color:#5A6C7D;
+      font-family:'Inter',sans-serif;
+      font-size:0.95rem;
+      color:#4a5a6e;
       line-height:1.7;
-      margin:0;
-      max-width:500px;
+      margin:0.4rem 0 0.6rem;
+      max-width:420px;
     ">
       Utilizamos cookies para garantizar el funcionamiento correcto del sitio y mejorar tu experiencia.
     </p>
-    
+
     <!-- BOTÓN PRINCIPAL -->
     <button id="acceptCookies" style="
+      font-family:'Inter',sans-serif;
       background:#0052CC;
       color:#fff;
       border:none;
-      padding:1.1rem 3rem;
-      border-radius:12px;
-      font-family:'Poppins',sans-serif;
+      padding:1rem 2.5rem;
+      border-radius:14px;
       font-size:1.05rem;
-      font-weight:700;
+      font-weight:600;
       cursor:pointer;
       width:100%;
-      max-width:400px;
-      transition:all .3s;
-      margin-top:1rem;
-    " onmouseover="this.style.background='#003D99';this.style.boxShadow='0 12px 30px rgba(0,82,204,.3)'" onmouseout="this.style.background='#0052CC';this.style.boxShadow='none'">
+      max-width:380px;
+      transition:all 0.3s ease;
+      margin-top:0.8rem;
+    " onmouseover="this.style.background='#003D99';this.style.boxShadow='0 12px 32px rgba(0,82,204,0.35)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#0052CC';this.style.boxShadow='none';this.style.transform='translateY(0)'">
       Aceptar cookies
     </button>
-    
+
     <!-- LINK POLÍTICA -->
     <a href="#politicas" style="
-      font-size:.85rem;
+      font-family:'Inter',sans-serif;
+      font-size:0.85rem;
       color:#0052CC;
       text-decoration:none;
-      cursor:pointer;
-      transition:color .2s;
-    " onmouseover="this.style.color='#003D99'" onmouseout="this.style.color='#0052CC'">
+      transition:color 0.2s;
+      margin-top:0.2rem;
+    " onmouseover="this.style.color='#003D99';this.style.textDecoration='underline'" onmouseout="this.style.color='#0052CC';this.style.textDecoration='none'">
       Ver política de privacidad
     </a>
   </div>
@@ -941,20 +950,20 @@ input:focus, textarea:focus, select:focus {
 
 <style>
   @keyframes fadeInBlur {
-    from { opacity: 0; backdrop-filter: blur(0px); }
-    to { opacity: 1; backdrop-filter: blur(8px); }
+    from { opacity: 0; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); }
+    to { opacity: 1; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   }
   @keyframes slideUpModal {
-    from { opacity: 0; transform: translateY(100px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(80px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
   }
   @keyframes fadeOutBlur {
-    from { opacity: 1; backdrop-filter: blur(8px); }
-    to { opacity: 0; backdrop-filter: blur(0px); }
+    from { opacity: 1; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    to { opacity: 0; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); }
   }
   @keyframes slideDownModal {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(100px); }
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(80px) scale(0.96); }
   }
 </style>
 
@@ -1849,4 +1858,4 @@ document.querySelectorAll('#cookieModal a[href="#politicas"]').forEach(link => {
 
 </script>
 </body>
-</html>
+  </html>
