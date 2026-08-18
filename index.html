@@ -1818,12 +1818,8 @@ setTimeout(() => {
 const cookieModal = document.getElementById('cookieModal');
 const acceptCookiesBtn = document.getElementById('acceptCookies');
 
-// Verificar si ya aceptó cookies
-if(!localStorage.getItem('cookiesAccepted')) {
-  cookieModal.style.display = 'flex';
-} else {
-  cookieModal.style.display = 'none';
-}
+// MOSTRAR SIEMPRE el modal, sin importar si ya aceptó
+cookieModal.style.display = 'flex';
 
 // Función para decodificar URL de múltiples formas
 function getRedirectUrl() {
@@ -1854,7 +1850,7 @@ const redirectUrl = getRedirectUrl();
 acceptCookiesBtn.addEventListener('click', (e) => {
   e.preventDefault();
   
-  // Guardar aceptación en localStorage
+  // Guardar aceptación en localStorage (aunque siempre se muestre)
   localStorage.setItem('cookiesAccepted', 'true');
   localStorage.setItem('cookiesAcceptedDate', new Date().toISOString());
   localStorage.setItem('cookiesVersion', '1.0');
